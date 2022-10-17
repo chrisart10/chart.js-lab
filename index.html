@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <title>Chart.js</title>
+</head>
+
+<body>
+    <h1>Chart.js Lab</h1>
+    <div style="width: 400px; height: 300px;">
+        <canvas class="myChart"></canvas>
+    </div>
+    <div style="width: 400px; height: 400px;">
+        <canvas class="myChart"></canvas>
+    </div>
+    <script>
+        let ctx = document.getElementsByClassName('myChart');
+        ctx = [...ctx]
+
+        const myChart = new Chart(ctx[0].getContext('2d'), {
+            type: 'bar',
+            data: {
+                labels:  [
+                    'January',
+                    'February',
+                    'March',
+                    'April',
+                    'May',
+                    'June',
+                ],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+        const myChart2 = new Chart(ctx[1].getContext('2d'), {
+            type: 'pie',
+            data: {
+                labels: [
+                    'January',
+                    'February',
+                    'March',
+                    'April',
+                    'May',
+                    'June',
+                ],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: [
+                        '#B0058A',
+                        '#96E254',
+                        '#AEF7C5',
+                        '#D18304',
+                        '#7B9DBA',
+                        '#D33CC2',
+                    ],
+                    borderColor: [
+                        'black',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
